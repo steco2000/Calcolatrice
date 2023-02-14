@@ -16,10 +16,14 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        primaryStage = stage;
+        setPrimaryStage(stage);
         primaryStage.setResizable(false);
         CalculatorGraphicController controller = new CalculatorGraphicController();
         controller.displayGUI();
+    }
+
+    private static void setPrimaryStage(Stage stage) {
+        primaryStage = stage;
     }
 
 }

@@ -88,15 +88,19 @@ public class CalculatorGraphicController {
     public void subButtonEvent(ActionEvent actionEvent) {
         if(display.getText().isEmpty()) return;
 
-        if(opCounter == 0){
-            operand1 = parseFloat(display.getText());
-            operation = 2;
-            display.setText("0");
+        if(!display.getText().equals("0")) {
+            if (opCounter == 0) {
+                operand1 = parseFloat(display.getText());
+                operation = 2;
+                display.setText("0");
+            } else {
+                display.setText(String.valueOf(doOperation(operation, false)));
+                operation = 2;
+            }
+            opCounter++;
         }else{
-            display.setText(String.valueOf(doOperation(operation,false)));
-            operation = 2;
+            digitAppend("-");
         }
-        opCounter++;
     }
 
     //stessa cosa del tasto della divisione
